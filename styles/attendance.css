@@ -1,0 +1,379 @@
+/* ==================== ATTENDANCE STYLES ==================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* ==================== HEADER ==================== */
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header .subtitle {
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+
+.main-content {
+    padding: 40px 20px;
+}
+
+.card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+/* ==================== FORM STYLES ==================== */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ==================== MAP ==================== */
+
+.map-container {
+    height: 350px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.location-details {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin-bottom: 15px;
+}
+
+.location-details p {
+    padding: 8px 0;
+    font-size: 0.95rem;
+}
+
+.location-details strong {
+    color: #667eea;
+    min-width: 120px;
+    display: inline-block;
+}
+
+.location-details span {
+    color: #764ba2;
+    font-weight: 600;
+}
+
+/* ==================== STATUS MESSAGE ==================== */
+
+.status-message {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #ffc107;
+}
+
+.status-message p {
+    margin: 0;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.status-message.success {
+    border-left-color: #28a745;
+    background: #f0fdf4;
+}
+
+.status-message.success p {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.status-message.error {
+    border-left-color: #dc3545;
+    background: #fef2f2;
+}
+
+.status-message.error p {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.status-message.warning {
+    border-left-color: #ffc107;
+    background: #fffbf0;
+}
+
+.status-message.warning p {
+    color: #ff9800;
+    font-weight: 600;
+}
+
+/* ==================== BUTTONS ==================== */
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.btn {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #5568d3;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: #5a6268;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+    background: #218838;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #c82333;
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #333;
+}
+
+.btn-warning:hover:not(:disabled) {
+    background: #e0a800;
+}
+
+/* ==================== HISTORY ==================== */
+
+.history-section {
+    margin-top: 30px;
+}
+
+.history-list {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item-time {
+    font-weight: 600;
+    color: #667eea;
+    min-width: 150px;
+}
+
+.history-item-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.history-item-status.checkin {
+    background: #d4edda;
+    color: #28a745;
+}
+
+.history-item-status.checkout {
+    background: #f8d7da;
+    color: #dc3545;
+}
+
+.history-item-location {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* ==================== FOOTER ==================== */
+
+.footer {
+    background: #f8f9fa;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        min-width: auto;
+    }
+
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .map-container {
+        height: 250px;
+    }
+}
+
+/* ==================== LEAFLET OVERRIDES ==================== */
+
+.leaflet-container {
+    border-radius: 8px;
+}
+
+.leaflet-control-attribution {
+    font-size: 0.75rem;
+}

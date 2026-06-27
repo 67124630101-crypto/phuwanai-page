@@ -1,0 +1,21 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#6ee7b7;
+  --text:#e6eef6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Noto Sans Thai',sans-serif;background:linear-gradient(180deg,var(--bg),#081024);color:var(--text);line-height:1.5}
+.container{max-width:960px;margin:0 auto;padding:24px}
+.hero{padding:48px 0;text-align:center}
+.name{font-size:2.0rem;margin:0}
+.role{opacity:.9;margin:8px 0}
+.top-nav{margin-top:12px}
+.top-nav a{color:var(--accent);margin:0 8px;text-decoration:none}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.08));padding:20px;margin:18px 0;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.projects{padding-left:18px;margin:0}
+.footer{padding:24px 0;text-align:center;opacity:.7}
+@media(min-width:700px){.name{font-size:2.6rem}.hero{padding:72px 0}}
+
+/* Small helper utilities */
+a{color:var(--accent)}
