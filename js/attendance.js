@@ -132,6 +132,10 @@ class AttendanceSystem {
         this.marker.openPopup();
     }
 
+    getTodayDate() {
+        return new Date().toISOString().slice(0, 10);
+    }
+
     // ==================== CHECK-IN / CHECK-OUT ====================
 
     async checkIn() {
@@ -148,12 +152,14 @@ class AttendanceSystem {
         const employeeId = document.getElementById('employeeId').value;
         const employeeName = document.getElementById('employeeName').value;
         const department = document.getElementById('department').value;
+        const attendanceDate = document.getElementById('attendanceDate').value || this.getTodayDate();
         const checkInTime = new Date();
 
         const record = {
             employeeId,
             employeeName,
             department,
+            date: attendanceDate,
             type: 'CHECK_IN',
             time: checkInTime.toLocaleString('th-TH'),
             latitude: this.currentLocation.latitude,
@@ -190,12 +196,14 @@ class AttendanceSystem {
         const employeeId = document.getElementById('employeeId').value;
         const employeeName = document.getElementById('employeeName').value;
         const department = document.getElementById('department').value;
+        const attendanceDate = document.getElementById('attendanceDate').value || this.getTodayDate();
         const checkOutTime = new Date();
 
         const record = {
             employeeId,
             employeeName,
             department,
+            date: attendanceDate,
             type: 'CHECK_OUT',
             time: checkOutTime.toLocaleString('th-TH'),
             latitude: this.currentLocation.latitude,
@@ -263,6 +271,9 @@ class AttendanceSystem {
                     <div class="history-item-status ${item.type === 'CHECK_IN' ? 'checkin' : 'checkout'}">
                         ${item.type === 'CHECK_IN' ? '✅ เข้างาน' : '❌ ออกงาน'}
                     </div>
+                    <div class="history-item-date">
+                        📅 ${item.date || ''}
+                    </div>
                     <div class="history-item-location">
                         📍 ${item.latitude.toFixed(4)}, ${item.longitude.toFixed(4)}
                     </div>
@@ -294,15 +305,17 @@ class AttendanceSystem {
         const employeeId = document.getElementById('employeeId').value.trim();
         const employeeName = document.getElementById('employeeName').value.trim();
         const department = document.getElementById('department').value.trim();
+        const attendanceDate = document.getElementById('attendanceDate').value.trim();
 
-        return employeeId && employeeName && department;
+        return employeeId && employeeName && department && attendanceDate;
     }
 
     saveFormData() {
         const data = {
             employeeId: document.getElementById('employeeId').value,
             employeeName: document.getElementById('employeeName').value,
-            department: document.getElementById('department').value
+            department: document.getElementById('department').value,
+            attendanceDate: document.getElementById('attendanceDate').value
         };
         localStorage.setItem('attendanceFormData', JSON.stringify(data));
     }
@@ -310,10 +323,13 @@ class AttendanceSystem {
     restoreFormData() {
         const data = localStorage.getItem('attendanceFormData');
         if (data) {
-            const { employeeId, employeeName, department } = JSON.parse(data);
+            const { employeeId, employeeName, department, attendanceDate } = JSON.parse(data);
             document.getElementById('employeeId').value = employeeId || '';
             document.getElementById('employeeName').value = employeeName || '';
             document.getElementById('department').value = department || '';
+            document.getElementById('attendanceDate').value = attendanceDate || this.getTodayDate();
+        } else {
+            document.getElementById('attendanceDate').value = this.getTodayDate();
         }
     }
 
@@ -350,7 +366,7 @@ class AttendanceSystem {
         document.getElementById('clearHistoryBtn').addEventListener('click', () => this.clearHistory());
 
         // Save form data when input changes
-        ['employeeId', 'employeeName', 'department'].forEach(id => {
+        ['employeeId', 'employeeName', 'department', 'attendanceDate'].forEach(id => {
             document.getElementById(id).addEventListener('change', () => this.saveFormData());
         });
 
